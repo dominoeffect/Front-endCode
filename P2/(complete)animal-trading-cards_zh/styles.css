@@ -6,7 +6,7 @@
 	border-color: #cecece;
 	box-shadow: 10px 10px 5px #e6e6e6;
 }
-h3{
+h1{
 	margin: 25px;
 }
 img{
@@ -23,9 +23,14 @@ img{
 	font-style: italic;
 }
 ul{
-	margin: 10px;
+	padding-left: 10px; 
+	list-style:none;
+	width: 278px;
 }
 #p_two{
 	margin: 10px;
 	
+}
+span{
+	font-weight: bold;
 }
