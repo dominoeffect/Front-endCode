@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Brighton Times</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <style type="text/css">
+      html {font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/}
+      body {font-size: 1.4rem;/*1.4 × 10px = 14px */}
+      h1 { font-size: 2.4rem;/*2.4 × 10px = 24px*/}
+      
+      @media (min-width: 801px) {
+        
+        /*在800px的情况下居中并锁定到800PX*/
+        .container{
+          width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+          }
+        .header{
+          width: 100%;
+        }
+        .content{
+          display: flex;
+          /*flexbox适度换行*/
+          flex-wrap: wrap;
+
+          /*flexbox垂直排布*/
+          /*flex-direction: column;*/
+
+          /*flexbox反顺序排列*/
+          /*flex-direction: row-reverse;*/
+
+        }
+        .nav2 {
+          position:relative;
+          -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+        }
+        .nav2 {
+          background-color: #2A457A;
+          color: #efefef;
+          width: 20%
+
+        }
+        .hero{
+          /*float: left;*/
+          width: 40%;
+          border:1px solid darkblue;
+          font-size: 11px;
+        }
+        .news.top-news{
+          /*float: left;*/
+          width: 40%;
+          border:1px solid yellow;
+        }
+        .scores{
+          /*float: left;*/
+          width: 50%;
+          border:1px solid blue;
+        }
+        .weather{
+          border:1px solid red;
+          /*float: left;*/
+          width: 50%;
+        }
+        .news.recent-news{
+          border:1px solid black;
+          /*float: left;*/
+          width: 100%; 
+        }
+      }
+      @media (min-width: 600px) and (max-width: 800px) {
+        .content{
+          display: flex;
+          /*flexbox适度换行*/
+          flex-wrap: wrap;
+        }
+
+        .nav2 {
+        width: 160px;
+        height: 300px;
+        position: absolute;
+        /* 该变换将抽屉移出画布. */
+        -webkit-transform: translate(-160px, 0);
+        transform: translate(-160px, 0);
+        /* 我们还可以为抽屉添加动画. */
+        transition: transform 0.3s ease;
+        }
+        
+        .nav2 {
+          z-index: 1;
+          background-color: #2A457A;
+          color: #efefef;
+          width: 20%
+
+        }
+        
+        nav.open {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+        }
+
+        .hero{
+          width: 50%;
+          border:1px solid darkblue;
+        }
+        .news.top-news{
+
+          width: 50%;
+          border:1px solid yellow;
+        }
+        .scores{
+          
+          width: 100%;
+          border:1px solid blue;
+        }
+        .weather{
+          border:1px solid red;
+          /*float: left;*/
+          width: 100%;
+        }
+        .news.recent-news{
+          border:1px solid black;
+          /*float: left;*/
+          width: 100%; 
+        }
+        #ap{
+          font-size: 10px;
+        }
+        #ah2{
+          font-size: 15px;
+        }
+      }
+      @media (max-width: 599px) {
+
+        .content{
+          display: flex;
+          /*flexbox适度换行*/
+          flex-wrap: wrap;
+        }
+        .header__title{
+          font-size: 3rem;
+          margin: 35px 0 0 0;
+        }
+        
+        .hero{
+          width: 100%;
+          border:1px solid darkblue;
+        }
+        .news.top-news{
+
+          width: 100%;
+          border:1px solid yellow;
+        }
+        .scores{
+          
+          width: 100%;
+          border:1px solid blue;
+        }
+        .weather{
+          border:1px solid red;
+          /*float: left;*/
+          width: 100%;
+        }
+        .news.recent-news{
+          border:1px solid black;
+          /*float: left;*/
+          width: 100%; 
+        }
+        .nav2{
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="container">
+    
+    <header class="header">
+      <div class="header__inner">
+        <img class="header__logo" src="images/city.png" alt="iconic view of a cityscape">
+        <h1 class="header__title">
+          The Brighton Times
+        </h1>
+      </div>
+    </header>
+
+    <nav id="drawer" class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="#" id="menu">News</a></li>
+        <li class="nav__item"><a href="#">Events</a></li>
+        <li class="nav__item"><a href="#">Culture</a></li>
+        <li class="nav__item"><a href="#">Blog</a></li>
+      </ul>
+    </nav>
+
+    <main class="maincontant">
+      <section class="content">
+
+        <nav id="drawer2" class="nav2">
+          <h2>关闭画布</h2>
+          <p>单击抽屉外的区域关闭</p>
+          <p>如果宽度超过 600px，抽屉就会保持打开状态</p>
+        </nav>
+
+        <section class="hero">
+          <article class="description">
+            <h2 id="ah2">Absolutely astonishing breaking news!</h2>
+            <p id="ap">Organic raw denim Vice keffiyeh lomo Kickstarter art lomo Kickstarter art four loko. Organic raw denim Vice keffiyeh lomo Kickstarter art lomo Kickstarter art four loko.</p>
+          </article>
+        </section>
+
+        <section class="news top-news">
+          <h2 class="news__title">Top news <a href="#" class="news__more">+ more</a></h2>
+          <ul>
+            <li class="top-news__item">
+              <a href="#">Gastropub distillery Marfa farm-to-table, Etsy Truffaut fingerstache.</a>
+            </li>
+            <li class="top-news__item">
+              <a href="#">Squid lomo Kickstarter art lomo Kickstarter art party cronut scenester.</a>
+            </li>
+            <li class="top-news__item">
+              <a href="#">Organic raw denim lomo Kickstarter art Vice keffiyeh four loko.</a>
+            </li>
+            <li class="top-news__item">
+              <a href="#">Organic raw denim Vice keffiyeh lomo Kickstarter art lomo Kickstarter art four loko.</a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="scores">
+          <table class="scores__table">
+            <thead>
+              <tr>
+                <th>date</th>
+                <th>team</th>
+                <th colspan="2">score</th>
+                <th>team</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Friday</td>
+                <td>Bears</td>
+                <td>95</td>
+                <td class="winner">109</td>
+                <td class="winner">Cubs</td>
+              </tr>
+              <tr>
+                <td>Friday</td>
+                <td class="winner">Otters</td>
+                <td class="winner">3</td>
+                <td>1</td>
+                <td>Cubs</td>
+              </tr>
+              <tr>
+                <td>Saturday</td>
+                <td class="winner">Wolves</td>
+                <td class="winner">7</td>
+                <td>0</td>
+                <td>Panthers</td>
+              </tr>
+              <tr>
+                <td>Sunday</td>
+                <td>Hawks</td>
+                <td>11</td>
+                <td class="winner">12</td>
+                <td class="winner">Capons</td>
+              </tr>
+              <tr>
+                <td>Sunday</td>
+                <td class="winner">Stags</td>
+                <td class="winner">6</td>
+                <td>2</td>
+                <td>Foxes</td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </section>
+
+        <section class="weather">
+          <span class="weather__location">Brighton, UK</span>
+          <span class="weather__desc">Sunny</span>
+          <span class="weather__today">
+          <img class="weather__today__image" src="images/weather.png" alt="icon of a partially sunny day"><span class="weather__today__temp">13</span><span class="weather__today__deg">&deg;C</span>
+          </span>
+          <ul class="weather__next">
+            <li class="weather__next__item">
+              <span>Mon</span>
+              <img class="weather__next__image" src="images/sunny.png" alt="icon of a sunny day">
+              <span>13 &deg;C</span>
+            </li><li class="weather__next__item">
+              <span>Tues</span>
+              <img class="weather__next__image" src="images/cloudy.png" alt="icon of a cloudy day">
+              <span>13 &deg;C</span>
+            </li><li class="weather__next__item">
+              <span>Wed</span>
+              <img class="weather__next__image" src="images/cloudy.png" alt="icon of a cloudy day">
+              <span>13 &deg;C</span>
+            </li><li class="weather__next__item">
+              <span>Thu</span>
+              <img class="weather__next__image" src="images/rain.png" alt="icon of a rainy day">
+              <span>13 &deg;C</span>
+            </li><li class="weather__next__item">
+              <span>Fri</span>
+              <img class="weather__next__image" src="images/sunny.png" alt="icon of a sunny day">
+              <span>13 &deg;C</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="news recent-news">
+          <h2 class="news__title">Latest news <a href="#" class="news__more">+ more</a></h2>
+          <ul>
+            <li class="snippet">
+              <img class="snippet__thumbnail" src="images/dog.jpg" alt="picture of a girl with a large, stuffed dog toy">
+              <h3 class="snippet__title"><a href="#">Gastropub distillery Marfa farm-to-table</a></h3>
+              <p>Gastropub distillery Marfa farm-to-table, Etsy Truffaut fingerstache.
+              Squid lomo Kickstarter art party cronut scenester. Organic raw denim Vice keffiyeh four loko. Squid lomo Kickstarter art party cronut scenester. Organic raw denim Vice keffiyeh four loko.Vice keffiyeh four loko. Squid lomo Kickstarter art party cronut scenester. Organic raw denim Vice keffiyeh four loko.Vice keffiyeh four loko. Squid lomo Kickstarter art party cronut scenester. Organic raw denim Vice keffiyeh four loko.
+              </p>
+            </li>
+            <li class="snippet">
+              <img class="snippet__thumbnail" src="images/dog.jpg" alt="picture of a girl with a large, stuffed dog toy">
+              <h3 class="snippet__title"><a href="#">Organic raw keffiyeh four loko.</a></h3>
+              <p>Vice keffiyeh four loko. Squid lomo Kickstarter art party cronut scenester. Organic raw denim Vice keffiyeh four loko.Vice keffiyeh four loko. Squid lomo Kickstarter art party cronut scenester. Organic raw denim Vice loko.
+              </p>
+            </li>
+            <li class="snippet">
+              <img class="snippet__thumbnail" src="images/dog.jpg" alt="picture of a girl with a large, stuffed dog toy">
+              <h3 class="snippet__title"><a href="#">Kickstarter art party cronut scenester.</a></h3>
+              <p>Gastropub distillery Marfa farm-to-table, Etsy Truffaut fingerstache.
+              Squid lomo Kickstarter art party cronut scenester. Organic raw denim Vice keffiyeh four loko. Squid lomo Kickstarter art party cronut scenester. Organic raw denim Vice keffiyeh four loko.Vice keffiyeh four loko.
+              </p>
+            </li>
+            <li class="snippet">
+              <img class="snippet__thumbnail" src="images/dog.jpg" alt="picture of a girl with a large, stuffed dog toy">
+              <h3 class="snippet__title"><a href="#">Squid lomo Kickstarter art party cronut </a></h3>
+              <p>Gastropub distillery Marfa farm-to-table, Etsy Truffaut fingerstache.
+              Squid lomo Kickstarter art party cronut scenester. Organic raw denim Vice keffiyeh four loko. Squid lomo Kickstarter art party cronut scenester. Organic raw denim Vice keffiyeh four loko.Vice keffiyeh four loko.
+              </p>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <footer>
+        <ul>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Follow us on Twitter</a></li>
+          <li><a href="#">RSS</a></li>
+        </ul>
+      </footer>
+    </main>
+  
+  </body>
+  <script>
+      /*
+       * 单击hero时打开抽屉.
+       */
+      var menu = document.querySelector('#menu');
+      var main = document.querySelector('main');
+      var drawer = document.querySelector('#drawer2');
+
+      menu.addEventListener('click', function(e) {
+        // alert(11);
+        drawer.classList.toggle('open');
+        e.stopPropagation();
+      });
+      main.addEventListener('click', function() {
+        drawer.classList.remove('open');
+      });
+
+    </script>
+</html>
