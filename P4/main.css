@@ -51,7 +51,7 @@ ul {
   margin-bottom: 10px;
 }
 .header_content{
-  flex：1;
+  flex:1;
   position: absolute;
   right: 0;
 }
@@ -83,7 +83,7 @@ main {
  * Content
  *
  */
-.content{
+.content {
   display: flex;
   /*flexbox适度换行*/
   flex-wrap: wrap;

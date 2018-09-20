@@ -3,7 +3,52 @@
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 549px) {
+@media screen and (max-width: 400px) {
+  .header__logo {
+    height: 70px;
+    margin-left: 12px;
+  }
+  .header__title {
+    margin-right: 15px;
+    font-size: 2.5em;
+  }
+  .header_discription{
+    margin-right: 15px;
+    font-size: 1.1em;
+    margin-top: 3px;
+    text-align: right;
+    width: 215px;
+  }
+  .news__title{
+    font-size: 1.8em;
+    margin-left: 12px;
+  }
+  .project{
+    margin-top: 12px;
+  }
+  .project-item {
+    width: 100%;
+    display: inline;
+  }
+  .project__next__image{
+    width: 100%;
+  }
+  .project-item-title{
+    float: left;
+    width: 20%;
+    font-size: 16px;
+    text-align: left;
+    margin:20px 0px 20px 12px;
+  }
+  .project-item-content{
+    width: 90%;   
+    font-size: 16px;
+    margin:20px 0px 20px 12px;
+  }  
+
+}
+
+@media screen and (min-width: 401px) and (max-width: 549px) {
   .header__logo {
     height: 70px;
     margin-left: 12px;
@@ -11,8 +56,6 @@
   .header__title {
     margin-right: 15px;
     font-size: 3.5em;
-
-    /*vertical-align: bottom; */
   }
   .header_discription{
     margin-right: 15px;
@@ -30,6 +73,9 @@
   .project-item {
     width: 100%;
     display: inline;
+  }
+  .project__next__image{
+    width: 100%;
   }
   .project-item-title{
     float: left;
@@ -49,12 +95,12 @@
 
 @media screen and (min-width: 550px) and (max-width: 849px){
   .header__logo {
-    height: 70px;
+    height: 50px;
     margin-left: 12px;
   }
   .header__title {
     margin-right: 15px;
-    font-size: 3.5em;
+    font-size: 2.5em;
 
     /*vertical-align: bottom; */
   }
@@ -74,11 +120,10 @@
   .project-item {
     display: inline-block;
     text-align: center;
-    margin-top: 12px;
     width: 33.3% ;
   }
   .project__next__image{
-  width: 80%;
+    width: 80%;
   }
 }
 
@@ -89,12 +134,12 @@
     margin-right: auto;
   }
   .header__logo {
-    height: 70px;
+    height: 50px;
     margin-left: 12px;
   }
   .header__title {
     margin-right: 15px;
-    font-size: 3.5em;
+    font-size: 2.5em;
 
     /*vertical-align: bottom; */
   }
@@ -111,13 +156,13 @@
   .project{
     display: flex;
     justify-content: space-between;
+    margin-top: 12px;
   }
   .project__next__image{
-  width: 100%;
+    width: 100%;
   }
   .project-item {
-  /*display: inline-block;*/
-  text-align: center;
-  width: 30% 
+    text-align: center;
+    width: 30%;
   }
 }
