@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>DOM事件监听</title>
+        <script type="text/javascript">
+            function show(){
+                alert("hello");
+            }
+
+            window.onload=function(){
+                var test1=document.getElementById("test1");
+                var test2=document.getElementById("test2");
+                test1.addEventListener("click", show, false);//给第一个按钮注册了onclick事件
+                /*test2.onclick=function(){//解除第一个按钮的onclick事件(方法一)
+                    test1.removeEventListener("click", show, false);
+                }*/
+                test2.addEventListener("click", function(){//解除第一个按钮的onclick事件(方法二)
+                    test1.removeEventListener("click", show, false);
+                }, false);
+            }
+        </script>
+        <!-- <script type="text/javascript">
+            if(!localStorage.countAll){
+                localStorage.countAll = 0;  
+            }
+            document.getElementById('countspan').innerHTML = localStorage.countAll;
+            function countNumber(){
+                localStorage.countAll++;
+                document.getElementById('countspan').innerHTML = localStorage.countAll;
+            }
+        </script> -->
+        <script type="text/javascript">
+            /*
+             * 创建一个包含所有卡片的数组
+             */
+            var cards = new Array();
+            cards[0] = "cards1_1";
+            cards[1] = "cards1_2";
+            cards[2] = "cards1_3";
+            cards[3] = "cards1_4";
+
+            cards[4] = "cards2_1";
+            cards[5] = "cards2_2";
+            cards[6] = "cards2_3";
+            cards[7] = "cards2_4";
+
+            cards[8] = "cards3_1";
+            cards[9] = "cards3_2";
+            cards[10] = "cards3_3";
+            cards[11] = "cards3_4";
+
+            cards[12] = "cards4_1";
+            cards[13] = "cards4_2";
+            cards[14] = "cards4_3";
+            cards[15] = "cards4_4";
+            /*
+             * 显示页面上的卡片
+             *   - 使用下面提供的 "shuffle" 方法对数组中的卡片进行洗牌
+             *   - 循环遍历每张卡片，创建其 HTML
+             *   - 将每张卡的 HTML 添加到页面
+             */
+
+            // 洗牌函数来自于 http://stackoverflow.com/a/2450976
+            function shuffle(array) {
+                var currentIndex = array.length, temporaryValue, randomIndex;
+
+                while (currentIndex !== 0) {
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex -= 1;
+                    temporaryValue = array[currentIndex];
+                    array[currentIndex] = array[randomIndex];
+                    array[randomIndex] = temporaryValue;
+                }
+
+                return console.log(array);
+            }
+            function shuffleT() {
+                shuffle(cards);
+            }
+        </script>
+        
+    </head>
+    <body>
+        <input type="button" id="test1" value="测试1">
+        <button type="button" id="test2"><b>测试2</b></button>
+        <span id="countspan"></span>
+        <a href="#" onclick="countNumber();">点击</a>
+
+        <a href="#" onclick="shuffleT();">shuffle点击</a>
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>在页面上实现一个秒表 00:00:00 （分钟:秒钟:百分秒） ，通过三个按钮（开始、停止、重置）来控制</h1>
+<p id="second_watch">00:00:00</p>
+<p>
+    <input id="time_start" type="button" value="开始" onclick="time_start()" />
+    <input type="button" value="停止" onclick="time_stop()" />
+    <input type="button" value="重置" onclick="time_reset()" />
+</p>
+<script>
+    var i1 = 0; //分钟第一位
+    var i2 = 0; //分钟第二位
+    var s1 = 0; //秒第一位
+    var s2 = 0; //秒第二位
+    var ms1 = 0; //百分秒第一位
+    var ms2 = 0; //百分秒第二位
+    var t;　　//计时函数保存
+    function time_start(){
+        document.getElementById("time_start").disabled = "true";  //开始后使开始按钮失效，防止多次点击计时加快的bug
+        ms2++; //只需百分秒最后一位自加，前面依次进位
+        if(ms2>9){
+            ms2 = 0;
+            ms1++;
+        }
+        if(ms1>9){
+            ms1 = 0;
+            s2++;
+        }
+        if(s2>9){
+            s2 = 0;
+            s1++;
+        }
+        if(s1>5){
+            s1 = 0;
+            i2++;
+        }
+        if(i2>9){
+            i2 = 0;
+            i1++;
+        }
+        if(i1>5){
+            //超出秒表计数范围
+            clearTimeout(t);
+            return false;
+        }
+        document.getElementById("second_watch").innerHTML = ""+i1+i2+":"+s1+s2+":"+ms1+ms2+"";
+        document.getElementById("second_watch").style.color = "black";
+        t = setTimeout("time_start()",10);　　//百分秒百分之一秒执行一次
+    }
+
+    function time_stop(){
+        clearTimeout(t);
+        document.getElementById("second_watch").style.color = "red";
+        document.getElementById("time_start").disabled = ""; //停止时恢复按钮功能
+    }
+
+    function time_reset(){
+        clearTimeout(t);
+        i1 = 0;
+        i2 = 0;
+        s1 = 0;
+        s2 = 0;
+        ms1 = 0;
+        ms2 = 0;
+        document.getElementById("second_watch").innerHTML = ""+i1+i2+":"+s1+s2+":"+ms1+ms2+"";
+        document.getElementById("second_watch").style.color = "black";
+        document.getElementById("time_start").disabled = "";
+    }
+
+</script>
+</body>
+</html>
