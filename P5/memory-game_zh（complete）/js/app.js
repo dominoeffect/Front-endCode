@@ -31,6 +31,11 @@
         clear_count()
     }, false);
 
+    var clear_button=document.getElementById("clear_button");
+    clear_button.addEventListener('click', function() { 
+        clear_count()
+    }, false);
+    
     var click_count = 0;
 
     let deck = document.getElementsByClassName('deck')[0];
@@ -90,12 +95,22 @@ function compare(card_one,card_two) {
         storage.setItem('score_point',parseInt(storage.score_point) + 10);
         document.getElementById('score').innerHTML = storage.score_point;
         if(storage.success_couple == 8) {
-            if(storage.score_point <= 0 ){
-                alert("You have finished M-GAME! You score is " + storage.score_point + "(ScoreRank:0 Star)" + "You cost time:" + document.getElementById("time").innerText);    
-            }else if(storage.score_point > 0 && storage.score_point <40) {
-                alert("You have finished M-GAME! You score is " + storage.score_point + "(ScoreRank:3 Stars)" + "You cost time:" + document.getElementById("time").innerText);    
-            }else{
-                alert("You have finished M-GAME! You score is " + storage.score_point + "(ScoreRank:5 Stars)" + "You cost time:" + document.getElementById("time").innerText);
+            if(storage.countAll <= 16 ){
+                if(confirm("You have finished M-GAME! You score is " + storage.score_point + "(ScoreRank:3 Star)" + "You cost time:" + document.getElementById("time").innerText +"Do you wanna play again?")){ 
+                    window.location.reload();
+                }
+            }else if(storage.countAll > 16 && storage.countAll <= 32) {
+                if(confirm("You have finished M-GAME! You score is " + storage.score_point + "(ScoreRank:2 Stars)" + "You cost time:" + document.getElementById("time").innerText +"Do you wanna play again?")){ 
+                    window.location.reload();
+                }
+            }else if(storage.countAll > 32 && storage.countAll <= 48) {
+                if(confirm("You have finished M-GAME! You score is " + storage.score_point + "(ScoreRank:1 Stars)" + "You cost time:" + document.getElementById("time").innerText +"Do you wanna play again?")){ 
+                    window.location.reload();
+                }
+            }else {
+                if(confirm("You have finished M-GAME! You score is " + storage.score_point + "(ScoreRank:0 Stars)" + "You cost time:" + document.getElementById("time").innerText +"Do you wanna play again?")){ 
+                    window.location.reload();
+                }
             }
             time_stop();
         }        
